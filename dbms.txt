@@ -1,0 +1,65 @@
+create table customer (cno int,cname char(30), sal int, city char(30));
+insert into customer values (1,'abc',12000,'delhi');
+insert into customer values(2,'akk',13000,'kolkata');
+insert into customer values (3,'pqr',22000,'delhi');
+insert into customer values (4,'abeckk',25000,'panjab');
+insert into customer values (5,'jjj',10000,'delhi');
+insert into customer values (6,'aeebc',12000,'delhi');
+insert into customer values (7,'akrk',13000,'kolkata');
+insert into customer values (8,'pqyyr',22000,'delhi');
+insert into customer values (9,'abrckk',25000,'panjab');
+insert into customer values (10,'jojj',10000,'delhi');
+set linesize 120;
+select * from customer;
+select sal from customer;
+select sal,city from customer;
+select * from customer where city='delhi';
+select * from customer where city in('kolkata','panjab');
+select * from customer where city not in('delhi');
+select * from customer where sal between 15000 and 25000;
+select * from customer where (city='delhi' or city='up');
+select * from customer where (city='delhi' or sal=12000);
+select * from customer where cname like 'a%';
+select * from customer where trim(cname) like 'a%';
+select * from customer where cname like 'abc%';
+select * from customer where cname not like 'abc%';
+select * from customer where trim(cname) like '_kk';
+
+select COUNT(*) from employees where department_id=50;
+select COUNT(comission_pct) from employees where department_id=80;
+select last_name||job_id as "Employees" from from employees; 
+select department_id from employees;
+select distinct department_id from employees;
+select last_name, manager_id from employees where manager_id is NULL
+select AVG(salary), MAX(salary), MIN(salary),SUM(salary) from employees where job_id like'%REP%';
+select COUNT(distinct department_id) from employees;
+selecct MAX(AVG(salary)) from employees group by department_id;
+select last_name as name, comission_pct comm from employees;
+select last_name "Name", salary*12 "Annual Salary" from employees;
+select MIN(hire_date), MAX(hire_date) from employees;
+describe employees;
+select employyes_id, last_name, job_id, salary from employees where salary>=10000 and job_id LIKE '%MAN%';
+select department_id, AVG(salary) from employees group by department_id;
+select department_id, job_id, SUM(salary) from employees where department_id>40 group by department_id, job_id group by department_id;
+
+select column, group_function from table 
+[where condition]
+[group_by group_by_expression]
+[having group_condition]
+[order by column];
+
+
+
+select last_name, job_id, department_id, hire_date from employees order by hire_date;
+select job_id, SUM(salary) PAYROLL from employees where job_id not like '%REP%' group by job_id having SUM(salary)>13000 order by SUM(salary);
+
+select last_name from employees where salary>(select salary from employees where last_name='Abel');
+select last_name, job_id, salary from employees where salary>(select MIN(salary) from employees);
+select last_name, job_id salary from employees where joi_id=(select job_id from employees where last_name='Seo')AND salary>(select salary from employees where last_name='Seo');
+select employee_id, last_name,job_id, salary from employees where salary< ANY(select salary from employees where job_id ='IT_PROG')AND job_id<>'IT_PROG';
+select department_id, MIN(salary) from employees group by department_id having MIN(salary)>(select MIN(salary) from employees where department_id=50);
+
+
+
+
+
