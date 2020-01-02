@@ -1,0 +1,17 @@
+create table Teacher (tno int,tname char(30, sla int, city char(30), doj date);
+insert into Teacher values(101, 'asd',120000,'Hyd','23-Nov-1999');
+insert into Teacher values(102, 'asdf',100000,'Hubli','23-Nov-1999');
+insert into Teacher values(103, 'jkl',125000,'Bengaluru','23-Nov-1999');
+insert into Teacher values(104, 'jklo',129000,'Delhi','22-Oct-1999');
+insert into Teacher values(105, 'askme',120000,'DELHI','22-Oct-1999');
+insert into Teacher values(106, 'assess',127000,'BHOPAL','02-Dec-1997');
+insert into Teacher values(106, 'sitathome',12000,'Rajhastan','02-Apr-1997');
+select * from Teacher;
+select * from Teacher where doj='23-Nov-1999';
+
+select * from Teacher where doj='23-Nov-1999' and doj='22-Oct-1999';
+
+
+
+
+

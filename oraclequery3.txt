@@ -1,0 +1,15 @@
+1.	Alter table e add
+Constraint pk primary key(eno);
+2.	Alter table e drop constraints pk;
+3.	Create table e2(eno int primary key,ename char(30));
+4.	Create table e2(eno int ,ename char(30),constraint pk primary key(eno));
+5.	Alter table dept add constraint fk foregin key(eno);
+6.	Alter table dept drop constraints fk;
+7.	Create table dept (dno char(20),eno int, constraint fk foregin key(eno) reference e2(eno));
+8.	Alter table e drop constraint fk;
+9.	Create table suppliers(
+Supplier_id numeric(4),
+Supplier_name varchar2(50),
+Constraint check_supplier_id
+Check(supplier_id between 100 and 9999)
+)

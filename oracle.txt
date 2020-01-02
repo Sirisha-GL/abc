@@ -1,0 +1,29 @@
+select * from employees where salary>10000;
+
+select * from employees where employee_id='150' or employee_id='160';
+
+select first_name, salary, commission_pct, hire_date from employees where salary<10000;
+
+select max(salary)-min(salary) difference from employees;
+
+select * from employees order by job_id desc;
+
+select * from employees where first_name like ('S%') or last_name like ('S%');
+
+select * from employees where to_char(hire_date,'mon')='may';
+
+SELECT FIRST_NAME, DATEDIFF( SYSDATE(), hire_date )/365 from employees;
+
+select manager_id, count(employee_id) as emp_count from employees group by manager_id order by emp_count desc;
+
+select avg(salary) from employees where commission_pct is not null group by department_id;
+
+select job_id, avg(salary) from employees group by job_id having avg(salary)>10000;
+
+select distinct department_id from employees group by department_id, manager_id having count(employee_id) >= 5;
+
+select department_id, count(employee_id) as emp_count from employees group by department_id;
+
+select d.department_name,e.first_name,l.city from departments d join employees e on(d.manager_id = e.employee_id) join locations l using (location_id);
+
+select l.city, d.department_name from locations l join departments d on (l.location_id = d.location_id);
